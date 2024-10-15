@@ -1,4 +1,5 @@
 const db = require('../config/database')
+const bcrypt = require('bcrypt')
 const validate = require('validator')
 
 exports.getUser = async (req, res) => {
@@ -20,7 +21,8 @@ exports.createUser = async (req, res) => {
     }
 
     try {
-        await db('user').insert({ name, email, password })
+        var hashedPassword = await bcrypt.hash(password, 16)
+        await db('user').insert({ name, email, password: hashedPassword })
         return res.status(201).send('Dados inseridos com sucesso!')
     } catch (err) {
         return res.status(400).send(err)
