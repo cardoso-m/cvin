@@ -36,7 +36,26 @@ const getUserById = async (req, res) => {
     }
 }
 
+const updateUser = async (req, res) => {
+    var id = req.params
+    var {first_name, last_name, email, password} = req.body
+
+    if (!id) {
+        return res.status(400).json({ message: 'Informe o ID' })
+    }
+
+    try {
+        var userData = {first_name, last_name, email, password}
+        var user = await userModel.updateUser(id, userData)
+
+        return res.status(200).json(user)
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+}
+
 module.exports = {
     createUser,
-    getUserById
+    getUserById,
+    updateUser
 }
