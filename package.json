@@ -1,0 +1,14 @@
+{
+  "name": "cvin",
+  "version": "1.0.0",
+  "description": "Analisador de curriculo com IA",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matheus Cardoso",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
