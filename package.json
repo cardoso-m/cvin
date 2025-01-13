@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "cvin": "file:",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "knex": "^3.1.0",
