@@ -42,8 +42,21 @@ const updateUser = async (userId, userData) => {
     }
 }
 
+const deleteUser = async (userId) => {
+    
+    try {
+        var user = await db('user')
+            .where(userId)
+            .del()
+        return user
+    } catch (error) {
+        res.status(400).send('Erro ao deletar usuário')
+    }
+}
+
 module.exports = {
     createUser,
     getUserById,
-    updateUser
+    updateUser,
+    deleteUser
 }
